@@ -26,21 +26,22 @@
                 <a href="">Careers</a>
                 <a href="">Salaries</a>
                 <a href="">Companies</a>
-
             </div>
-            <div>
 
+            <div>
                 @auth
-                    <div>
+                    <div class="space-x-6 font-bold flex">
                         <a href="/jobs/create">Post a job</a>
+
+                        <form method="POST" action="/logout" class="inline">
+                            @csrf
+                            @method('DELETE')
+
+                            <button>Log Out</button>
+                        </form>
+
                     </div>
 
-                    <form method="POST" action="/logout">
-                        @csrf
-                        @method('DELETE')
-
-                        <button>Log Out</button>
-                    </form>
 
                 @endauth
 
@@ -56,7 +57,6 @@
         <main class="mt-10 max-w-[986px] mx-auto">
             {{ $slot }}
         </main>
-
 
     </div>
 
